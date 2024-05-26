@@ -9,9 +9,9 @@ import (
 func LoadConfig() {
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
-	viper.AddConfigPath(".")
+	viper.AddConfigPath("config/")
 
 	if err := viper.ReadInConfig(); err != nil {
-		log.Fatalf("Cannot find config fileeeeeee")
+		log.Fatalf("Cannot find config fileeeeeee", err)
 	}
 }

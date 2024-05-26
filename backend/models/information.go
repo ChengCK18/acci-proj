@@ -7,8 +7,9 @@ type ContactInfo struct {
 }
 
 type Information struct {
-	ID              string      `json:"id"`
-	InfoType        int         `json:"inf_type"`
-	InfoFilepath    string      `json:"info_filepath"`
-	InfoContactInfo ContactInfo `json:"info_contact_info,omitempty"`
+	ID               string      `json:"id"`
+	InfoType         int         `json:"inf_type"`
+	InfoFilepath     string      `json:"info_filepath"`
+	InfoContactInfo  ContactInfo `json:"info_contact_info,omitempty"`
+	InfoLinkedReport Report      `json:"info_linked_report"`
 }
