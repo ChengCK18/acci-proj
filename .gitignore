@@ -32,3 +32,8 @@ sketch
 
 # Go workspace file
 go.work
+
+
+.env
+
+backend/bin/*
