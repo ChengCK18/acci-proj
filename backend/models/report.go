@@ -5,18 +5,18 @@ import (
 )
 
 type Position struct {
-	Longitude string `json:"longitude"`
-	Latitude  string `json:"latitude"`
+	Longitude string `bson:"rep_longitude"`
+	Latitude  string `bson:"rep_latitude"`
 }
 
 type Report struct {
-	ID                  string        `json:"id"`
-	RepType             uint          `json:"rep_type"`
-	RepAffected         string        `json:"rep_affected"`
-	RepPosition         Position      `json:"rep_position"`
-	RepCreatedAt        time.Time     `json:"rep_created_at"`
-	RepIncidentDatetime time.Time     `json:"rep_incident_datetime"`
-	RepDescription      string        `json:"rep_description"`
-	RepStatus           uint          `json:"rep_status"`
-	RepInfo             []Information `json:"rep_info,omitempty"`
+	ID                  string        `bson:"_id"`
+	RepType             uint          `bson:"rep_type"`
+	RepAffected         string        `bson:"rep_affected"`
+	RepPosition         Position      `bson:"rep_position"`
+	RepCreatedAt        time.Time     `bson:"rep_created_at"`
+	RepIncidentDatetime time.Time     `bson:"rep_incident_datetime"`
+	RepDescription      string        `bson:"rep_description"`
+	RepStatus           uint          `bson:"rep_status"`
+	RepInfo             []Information `bson:"rep_info,omitempty"`
 }
