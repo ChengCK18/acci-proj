@@ -10,6 +10,7 @@ import (
 func SetupRoutes(router *gin.Engine) {
 	reportGroup := router.Group("api/report")
 	{
-		reportGroup.GET("/:id", middleware.LoggerMiddleware(), controllers.GetReport)
+		reportGroup.GET("/", middleware.LoggerMiddleware(), controllers.GetReport)
+		reportGroup.POST("/", middleware.LoggerMiddleware(), controllers.CreateReport)
 	}
 }

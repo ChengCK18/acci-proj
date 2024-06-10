@@ -11,5 +11,5 @@ type Information struct {
 	InfoType         int         `bson:"inf_type"`
 	InfoFilepath     string      `bson:"info_filepath"`
 	InfoContactInfo  ContactInfo `bson:"info_contact_info,omitempty"`
-	InfoLinkedReport Report      `bson:"info_linked_report"`
+	InfoLinkedReport string      `bson:"info_linked_report_id"`
 }
