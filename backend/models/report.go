@@ -20,5 +20,4 @@ type Report struct {
 	RepIncidentDatetime time.Time          `json:"rep_incident_datetime"`
 	RepDescription      string             `json:"rep_description"`
 	RepStatus           uint               `json:"rep_status"`
-	RepInfo             []Information      `json:"rep_info,omitempty"`
 }
