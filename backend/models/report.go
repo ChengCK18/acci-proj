@@ -7,17 +7,17 @@ import (
 )
 
 type Position struct {
-	Longitude string `json:"rep_longitude"`
-	Latitude  string `json:"rep_latitude"`
+	RepLatitude  float64 `bson:"repLatitude" json:"repLatitude"`
+	RepLongitude float64 `bson:"repLongitude" json:"repLongitude"`
 }
 
 type Report struct {
-	ID                  primitive.ObjectID `bson:"_id,omitempty"` //omitempty because POST request will not provide this attr, mongodb will generate this
-	RepType             uint               `json:"rep_type"`
-	RepAffected         string             `json:"rep_affected"`
-	RepPosition         Position           `json:"rep_position"`
-	RepCreatedAt        time.Time          `json:"rep_created_at"`
-	RepIncidentDatetime time.Time          `json:"rep_incident_datetime"`
-	RepDescription      string             `json:"rep_description"`
-	RepStatus           uint               `json:"rep_status"`
+	ID                  primitive.ObjectID `bson:"_id,omitempty"`
+	RepType             uint               `bson:"repType" json:"repType"`
+	RepAffected         string             `bson:"repAffected" json:"repAffected"`
+	RepPosition         Position           `bson:"repPosition" json:"repPosition"`
+	RepCreatedAt        time.Time          `bson:"repCreatedAt" json:"repCreatedAt"`
+	RepIncidentDatetime time.Time          `bson:"repIncidentDatetime" json:"repOncidentDatetime"`
+	RepDescription      string             `bson:"repDescription" json:"repDescription"`
+	RepStatus           uint               `bson:"repStatus" json:"repStatus"`
 }

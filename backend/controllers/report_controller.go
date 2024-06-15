@@ -1,46 +1,30 @@
 package controllers
 
 import (
-	"acci-backend/models"
 	"acci-backend/services"
-	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 func GetReport(c *gin.Context) {
 	report, err := services.GetReportService()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-		return // terminate
+		return
 	}
 
 	c.JSON(http.StatusOK, report)
 }
 
-func CreateReport(c *gin.Context) {
-	var report models.Report
-
-	if err := c.ShouldBindJSON(&report); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-	fmt.Println("Parsed result here => ", report)
-
-	insertedReport, err := services.AddReportService(report)
+func AddReport(c *gin.Context) {
+	insertedReport, err := services.AddReport(c)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	insertedReportID, success := insertedReport.InsertedID.(primitive.ObjectID)
-	if !success {
-		fmt.Println("Error: insertedReport.InsertedID is not of type primitive.ObjectID")
-		return
-	}
 
-	insertedInformation, err := services.InitializeInformationService(insertedReportID)
+	insertedInformation, err := services.AddInformationList(insertedReport)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return

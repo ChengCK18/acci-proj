@@ -11,6 +11,12 @@ func SetupRoutes(router *gin.Engine) {
 	reportGroup := router.Group("api/report")
 	{
 		reportGroup.GET("/", middleware.LoggerMiddleware(), controllers.GetReport)
-		reportGroup.POST("/", middleware.LoggerMiddleware(), controllers.CreateReport)
+		reportGroup.POST("/", middleware.LoggerMiddleware(), controllers.AddReport)
+	}
+
+	informationGroup := router.Group("api/information")
+	{
+		informationGroup.GET("/", middleware.LoggerMiddleware(), controllers.GetInformationList)
+		informationGroup.PATCH("/:id", middleware.LoggerMiddleware(), controllers.UpdateInformationList)
 	}
 }

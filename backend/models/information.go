@@ -7,21 +7,20 @@ import (
 )
 
 type ContactInfo struct {
-	Name     string `json:"name"`
-	Email    string `json:"email,omitempty"`
-	PhoneNum string `json:"phone,omitempty"`
+	Name     string `bson:"infoName" json:"infoName"`
+	Email    string `bson:"infoEmail,omitempty" json:"infoEmail,omitempty"`
+	PhoneNum string `bson:"infoPhone,omitempty" json:"infoPhone,omitempty"`
 }
 
 type Information struct {
-	InfoCreatedAt    time.Time   `json:"info_created_at"`
-	InfoType         int         `json:"inf_type"`
-	InfoFilepath     string      `json:"info_filepath"`
-	InfoContactInfo  ContactInfo `json:"info_contact_info,omitempty"`
-	InfoLinkedReport string      `json:"info_linked_report_id"`
+	InfoCreatedAt   time.Time   `bson:"infoCreatedAt" json:"infoCreatedAt"`
+	InfoType        int         `bson:"infType" json:"infType"`
+	InfoFilepath    string      `bson:"infoFilepath" json:"infoFilepath"`
+	InfoContactInfo ContactInfo `bson:"infoContactInfo,omitempty" json:"infoContactInfo,omitempty"`
 }
 
 type InformationList struct {
-	InfoID        primitive.ObjectID `bson:"_id"`
-	InfoList      []Information      `json:""`
-	InfoCreatedAt time.Time          `json:"info_created_at"`
+	InfoID        primitive.ObjectID `bson:"_id" json:"_id"`
+	InfoList      []Information      `bson:"infoList" json:"infoList"`
+	InfoCreatedAt time.Time          `bson:"infoCreatedAt" json:"infoCreatedAt"`
 }

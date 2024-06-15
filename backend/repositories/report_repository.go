@@ -12,17 +12,16 @@ import (
 
 func GetAllReports() ([]models.Report, error) {
 	var reports []models.Report
-
 	collection := utils.MongoClient.Database("acciProj").Collection("submittedReport")
 
 	cursor, err := collection.Find(context.TODO(), bson.D{})
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 	defer cursor.Close(context.TODO())
 
 	if err = cursor.All(context.TODO(), &reports); err != nil {
-		panic(err)
+		return nil, err
 	}
 
 	return reports, nil
