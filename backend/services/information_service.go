@@ -27,9 +27,8 @@ func AddInformationList(insertedReport *mongo.InsertOneResult) (*mongo.InsertOne
 	}
 
 	info := models.InformationList{
-		InfoID:        insertedReportID,
-		InfoList:      []models.Information{},
-		InfoCreatedAt: time.Now(),
+		InfoID:   insertedReportID,
+		InfoList: []models.Information{},
 	}
 
 	result, err := repositories.AddInformationList(info)
