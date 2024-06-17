@@ -14,13 +14,12 @@ type ContactInfo struct {
 
 type Information struct {
 	InfoCreatedAt   time.Time   `bson:"infoCreatedAt" json:"infoCreatedAt"`
-	InfoType        int         `bson:"infType" json:"infType"`
-	InfoFilepath    string      `bson:"infoFilepath" json:"infoFilepath"`
+	InfoType        int         `bson:"infoType" json:"infoType"`
+	InfoDescription string      `bson:"infoDescription" json:"infoDescription"`
 	InfoContactInfo ContactInfo `bson:"infoContactInfo,omitempty" json:"infoContactInfo,omitempty"`
 }
 
 type InformationList struct {
-	InfoID        primitive.ObjectID `bson:"_id" json:"_id"`
-	InfoList      []Information      `bson:"infoList" json:"infoList"`
-	InfoCreatedAt time.Time          `bson:"infoCreatedAt" json:"infoCreatedAt"`
+	InfoID   primitive.ObjectID `bson:"_id" json:"_id"`
+	InfoList []Information      `bson:"infoList" json:"infoList"`
 }

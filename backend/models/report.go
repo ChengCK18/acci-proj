@@ -13,8 +13,7 @@ type Position struct {
 
 type Report struct {
 	ID                  primitive.ObjectID `bson:"_id,omitempty"`
-	RepType             uint               `bson:"repType" json:"repType"`
-	RepAffected         string             `bson:"repAffected" json:"repAffected"`
+	RepCategory         uint               `bson:"repCategory" json:"repCategory"`
 	RepPosition         Position           `bson:"repPosition" json:"repPosition"`
 	RepCreatedAt        time.Time          `bson:"repCreatedAt" json:"repCreatedAt"`
 	RepIncidentDatetime time.Time          `bson:"repIncidentDatetime" json:"repOncidentDatetime"`
